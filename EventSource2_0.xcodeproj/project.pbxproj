@@ -16,6 +16,7 @@
 		D647AD0F2455EE6C008F7264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D647AD0D2455EE6C008F7264 /* LaunchScreen.storyboard */; };
 		D647AD1A2455EE6D008F7264 /* EventSource2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D647AD192455EE6D008F7264 /* EventSource2_0Tests.swift */; };
 		D647AD252455EE6D008F7264 /* EventSource2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D647AD242455EE6D008F7264 /* EventSource2_0UITests.swift */; };
+		D647AD34245732F9008F7264 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D647AD33245732F9008F7264 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D647AD202455EE6D008F7264 /* EventSource2_0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventSource2_0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D647AD242455EE6D008F7264 /* EventSource2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSource2_0UITests.swift; sourceTree = "<group>"; };
 		D647AD262455EE6D008F7264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D647AD33245732F9008F7264 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				D647ACFF2455EE67008F7264 /* AppDelegate.swift */,
+				D647AD32245732CE008F7264 /* View */,
 				D647AD012455EE67008F7264 /* SceneDelegate.swift */,
-				D647AD062455EE67008F7264 /* ContentView.swift */,
 				D647AD082455EE6C008F7264 /* Assets.xcassets */,
 				D647AD0D2455EE6C008F7264 /* LaunchScreen.storyboard */,
 				D647AD102455EE6C008F7264 /* Info.plist */,
@@ -137,6 +139,15 @@
 				D647AD262455EE6D008F7264 /* Info.plist */,
 			);
 			path = EventSource2_0UITests;
+			sourceTree = "<group>";
+		};
+		D647AD32245732CE008F7264 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D647AD062455EE67008F7264 /* ContentView.swift */,
+				D647AD33245732F9008F7264 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 				D647AD002455EE67008F7264 /* AppDelegate.swift in Sources */,
 				D647AD052455EE67008F7264 /* EventSource2_0.xcdatamodeld in Sources */,
 				D647AD072455EE67008F7264 /* ContentView.swift in Sources */,
+				D647AD34245732F9008F7264 /* HomeView.swift in Sources */,
 				D647AD022455EE67008F7264 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

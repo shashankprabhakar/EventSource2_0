@@ -49,15 +49,18 @@ struct HomeView: View {
         }
                 
                 
-            .padding()
+            .padding(.bottom, 20).padding(.top, 20)
             .background(Color.green)
             
+            ScrollView {
+                
             
-            VStack{
-                Text("This is the VStack")
-                Text("This is the VStack")
-                Text("This is the VStack")
-                Text("This is the VStack")
+            VStack{ 
+           
+                ForEach(0..<3) { _ in
+                    
+                    EventList()
+                }
                 
             }
             
@@ -71,6 +74,7 @@ struct HomeView: View {
         
         }
         
+    }
         
     
 }

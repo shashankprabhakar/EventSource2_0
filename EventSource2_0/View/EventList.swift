@@ -9,61 +9,87 @@
 import SwiftUI
 
 struct EventList: View {
+    
+    var event: String
+           var ratingAverage: Double
+           var numberOfRating: Int
+           var imageString: String
+           var cost: String
+    
     var body: some View {
+
         
-        VStack {
-            Image(systemName: "play.fill")
-                .frame(height: 100)
+        VStack(spacing: 0) {
+            Image(imageString)
+                .resizable()
+                .scaledToFill()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(height: 200)
+            
                 .background(Color.green)
+                .clipped()
+            
             HStack {
-                VStack {
-                    Text("hello")
-                    .font(.system(size: 30, weight: .bold))
-                    Text("there")
-                        .foregroundColor(Color.gray)
+                VStack(alignment: .leading) {
+                    Text(event)
+                        .font(.system(size: 20, weight: .bold))
+                    Text("\(cost)")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 14))
+                        
                     
                 }
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                        HStack {
-                            ForEach(0..<4) { _ in
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color.init(red: 220/255, green: 220/255, blue: 0))
-                            
-                            }
-                            
-                        }.frame(width: 100)
                     HStack {
-                          Text("100+ Ratings")
-                            .frame(width: 70)
-                            .font(.system(size: 15))
+                        ForEach(0..<4) { _ in
+                            Image(systemName: "star.fill")
+                                .foregroundColor(Color.init(red: 220/255, green: 220/255, blue: 0))
+                            
+                            
+                            
+                        }
+                        
+                        
+                        
+                        
+                    } .frame(width: 130)
+                    
+                    
+                    
+                    HStack {
+                        Text("\(numberOfRating)")
+                            .frame(width: 90)
+                            .font(.system(size: 11))
                             .foregroundColor(.gray)
                         
-                        Text("4.5/5")
+                        Text("\(ratingAverage)")
                             
                             .frame(width: 30)
-                            .font(.system(size: 10))
+                            .font(.system(size: 12))
                         
-                            
+                        
                         
                     }
-                      
-                    }
-               
+                    
+                    
+                }
+                
             }
-        
             
-            }
-        
+            
+        }
+            
         .padding()
         .background(Color.init(red: 0.9, green: 0.9, blue: 0.9))
         .cornerRadius(12)
+        .shadow(radius: 3, y: 5)
     }
 }
 
 struct EventList_Previews: PreviewProvider {
     static var previews: some View {
-        EventList()
+        EventList(event: "music", ratingAverage: 4.2, numberOfRating: 1000, imageString: "waterford-1", cost: "€€")
     }
 }

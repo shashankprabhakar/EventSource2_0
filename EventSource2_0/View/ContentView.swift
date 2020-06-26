@@ -35,12 +35,20 @@ struct ContentView: View {
                 .font(.title)
                 .tabItem {
                     VStack {
+                        Image(systemName: "star")
+                        Text("Your Events")
+                    }
+            }
+            .tag(1)
+            Text("Third View")
+                .font(.title)
+                .tabItem {
+                    VStack {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
             }
-            .tag(1)
-            
+            .tag(2)
         }
         
     }

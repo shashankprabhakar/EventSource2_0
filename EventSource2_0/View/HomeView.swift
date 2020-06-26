@@ -23,70 +23,63 @@ struct HomeView: View {
     
     
     var body: some View {
-        VStack(spacing: 0) {
-            TextField("placeholder", text: $val)
-                .padding()
-                .background(Color.red)
+        
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [blue_2, Color.white]), startPoint: .init(x: 0, y: 0), endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/).edgesIgnoringSafeArea(.all)
             
-            ScrollView(.horizontal,showsIndicators: false) {
-                
+            VStack(spacing: 0) {
                 HStack {
+                    Spacer().frame(width:10)
+                    TextField("search an event", text: $val)
+                        .padding()
+                        .background(Color.init(red: 0.9, green: 0.9, blue: 0.9))
+                        .cornerRadius(10)
+                    Spacer().frame(width:10)
+                }
+                ScrollView(.horizontal,showsIndicators: false) {
                     
-                    Spacer().frame(width: 10)
-                    
-                    ForEach(listOfEvent, id: \.id) { thisEvent in
+                    HStack {
+                        Spacer().frame(width: 10)
                         
-                        Button(action: { self.selectedEvent = thisEvent.enumVal }   ) {
-                            Text("\(thisEvent.name)")
-                                .padding()
-                                .foregroundColor(self.selectedEvent == thisEvent.enumVal ? Color.white : thisEvent.color
-                            )
-                                .background(self.selectedEvent == thisEvent.enumVal ? thisEvent.color : Color.init(red: 0.95, green: 0.95, blue: 0.95)
-                            )
-                        }
-
-                        
+                        ForEach(listOfEvent, id: \.id) { thisEvent in
+                            
+                            Button(action: { self.selectedEvent = thisEvent.enumVal }   ) {
+                                Text("\(thisEvent.name)")
+                                    .padding()
+                                    .foregroundColor(self.selectedEvent == thisEvent.enumVal ? Color.white : thisEvent.color
+                                )
+                                    .background(self.selectedEvent == thisEvent.enumVal ? thisEvent.color : Color.init(red: 0.95, green: 0.95, blue: 0.95)
+                                )
+                            }
                             .cornerRadius(15)
                             .font(.system(size: 15, weight: .bold))
-                        
+                        }
+                        Spacer().frame(width: 10)
                     }
-                    
-                    Spacer().frame(width: 10)
-                }
-                
-                
-            }
-                
-                
-            .padding(.bottom, 20).padding(.top, 20)
-            .background(Color.clear)
-            
-            ScrollView {
-                
-                
-                VStack{
-                    
-                    ForEach(listOfEvents, id: \.id) { thisEvent in
-                        
-                        EventList(event: thisEvent.name, ratingAverage: thisEvent.ratingAverage, numberOfRating: thisEvent.numberOfRating, imageString: thisEvent.imageString, cost: thisEvent.cost)
-                    }
-                    
                 }
                     
-                .padding()
+                .padding(.bottom, 20).padding(.top, 20)
                 .background(Color.clear)
                 
-               
-                Spacer()
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(listOfEvents, id: \.id) { thisEvent in
+                            
+                            EventList(event: thisEvent.name, ratingAverage: thisEvent.ratingAverage, numberOfRating: thisEvent.numberOfRating, imageString: thisEvent.imageString, cost: thisEvent.cost, height: self.selectedEvent == thisEvent.eventVal ? 295 : 0)
+                        }
+                    }
+                    .padding()
+                    .background(Color.clear)
+                    Spacer()
+                }
             }
-            
-            
         }
-        
     }
     
-    
 }
+
+
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()

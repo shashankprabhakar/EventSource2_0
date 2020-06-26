@@ -11,41 +11,47 @@ import SwiftUI
 struct EventList: View {
     
     var event: String
-           var ratingAverage: Double
-           var numberOfRating: Int
-           var imageString: String
-           var cost: String
+    var ratingAverage: Double
+    var numberOfRating: Int
+    var imageString: String
+    var cost: String
+    var height: CGFloat = 295
     
     var body: some View {
-
+        
         
         VStack(spacing: 0) {
             Image(imageString)
                 .resizable()
                 .scaledToFill()
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .frame(height: 200)
-            
+                .frame(height: 180)
+                
                 .background(Color.green)
                 .clipped()
             
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(event)
-                        .font(.system(size: 20, weight: .bold))
-                    Text("\(cost)")
+                        .font(.system(size: 15, weight: .bold))
+                        .frame(width: 90, height: 50)
+                    Text("Price: \(cost)")
                         .foregroundColor(.gray)
-                        .font(.system(size: 14))
-                        
+                        .font(.system(size: 12))
+                    .frame(width: 60, height: 20)
+                    
                     
                 }
                 Spacer()
                 
-                VStack(alignment: .trailing) {
+                VStack(alignment: .trailing, spacing: 10) {
                     HStack {
                         ForEach(0..<4) { _ in
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color.init(red: 220/255, green: 220/255, blue: 0))
+                           
+                              
+                            
                             
                             
                             
@@ -54,20 +60,22 @@ struct EventList: View {
                         
                         
                         
-                    } .frame(width: 130)
+                    } .frame(width: 115)
                     
                     
                     
-                    HStack {
-                        Text("\(numberOfRating)")
-                            .frame(width: 90)
+                    
+                    HStack(alignment: .center, spacing: 25) {
+                        Text("\(numberOfRating) + ratings ")
+                            .frame(width: 40, height: 30)
                             .font(.system(size: 11))
                             .foregroundColor(.gray)
-                        
-                        Text("\(ratingAverage)")
                             
-                            .frame(width: 30)
-                            .font(.system(size: 12))
+                        
+                        Text("\(String(ratingAverage))/5")
+                            
+                            .frame(width: 40, height: 30)
+                            .font(.system(size: 11))
                         
                         
                         
@@ -76,7 +84,8 @@ struct EventList: View {
                     
                 }
                 
-            }
+            } .frame(height: 50)
+                .padding()
             
             
         }
@@ -85,6 +94,7 @@ struct EventList: View {
         .background(Color.init(red: 0.9, green: 0.9, blue: 0.9))
         .cornerRadius(12)
         .shadow(radius: 3, y: 5)
+        .frame(height: height)
     }
 }
 
